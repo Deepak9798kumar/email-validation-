@@ -36,7 +36,17 @@ const PORT = process.env.PORT || 8000;
 // Configure multer for file uploads
 const upload = multer({ dest: 'uploads/' });
 
+app.get('/', async (req, res) => {
+ 
 
+  try {
+    
+    res.json({"status ":"server is listening"})
+    
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
 function getMXRecords(domain) {
   return new Promise((resolve, reject) => {
     dns.resolveMx(domain, (err, addresses) => {
