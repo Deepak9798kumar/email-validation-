@@ -88,7 +88,7 @@ function getCachedMXRecords(domain) {
 function validateEmail(mxHost, email) {
   return new Promise((resolve, reject) => {
     const domain = email.split('@')[1];
-    const client = net.createConnection(587, mxHost, () => {
+    const client = net.createConnection(485, mxHost, () => {
       let step = 0;
 
       client.on('data', (data) => {
